@@ -11,7 +11,6 @@
     ./modules/laptop.nix
     ./modules/networking.nix
     ./modules/packages.nix
-    ./modules/security.nix
     ./modules/virtualisation.nix
   ];
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.sway = {
@@ -55,7 +55,38 @@
     };
   };
 
-  services.displayManager.ly.enable = true;
+  services.greetd = {
+    enable = true;
+    useTextGreeter = true;
+    settings.default_session.command = lib.concatStringsSep " " [
+      (lib.getExe pkgs.tuigreet)
+      "--cmd ${lib.getExe config.programs.sway.package}"
+      "--env XDG_SESSION_TYPE=wayland"
+      "--sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions"
+    ];
+  };
+
+  security.polkit.enable = true;
+  security.pam.services.greetd = {
+    allowNullPassword = lib.mkForce false;
+    enableGnomeKeyring = true;
+  };
+
+  services.gnome.gnome-keyring.enable = true;
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
+
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 

@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  security.pam.services.ly.fprintAuth = true;
+  security.pam.services.greetd.fprintAuth = true;
 
   services.power-profiles-daemon.enable = false;
 

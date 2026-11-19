@@ -53,8 +53,6 @@
     powertop
     smartmontools
     efibootmgr
-    sbctl
-    tpm2-tools
     torsocks
     system-config-printer
 
