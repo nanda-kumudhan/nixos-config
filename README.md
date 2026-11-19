@@ -95,7 +95,7 @@ A stable, secure NixOS development environment for developers and CS students. B
 | **Productivity** | LibreOffice, AnkI, TeXStudio + full TeX Live |
 | **Media** | Spotify, MPV, Imv, Zathura |
 | **Gaming** | PrismLauncher |
-| **Security** | KeePassXC, GCR/Seahorse |
+| **Security** | Bitwarden Desktop, GCR/Seahorse |
 | **System** | fastfetch, powertop, smartmontools, fwupd, btop/htop |
 
 ## Getting Started

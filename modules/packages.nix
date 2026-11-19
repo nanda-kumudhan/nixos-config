@@ -48,7 +48,7 @@
     remmina
 
     fwupd
-    keepassxc
+    bitwarden-desktop
     gcr_4
     powertop
     smartmontools
