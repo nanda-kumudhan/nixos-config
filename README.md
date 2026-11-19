@@ -32,7 +32,7 @@ A stable, secure NixOS development environment for developers and CS students. B
 | `laptop.nix` | TLP (75–80 % battery thresholds), CPU governor profiles, fingerprint login, thermald, upower |
 | `networking.nix` | NetworkManager, MAC randomisation, nftables, OpenVPN / OpenConnect, LocalSend |
 | `security.nix` | Polkit, TPM2, AppArmor (with profiles), GNOME Keyring, kernel image & module locking |
-| `virtualisation.nix` | Docker, Podman, libvirtd / QEMU-KVM, Waydroid, virt-manager, Kubernetes stack |
+| `virtualisation.nix` | Docker, Podman, libvirtd / QEMU-KVM, virt-manager, Kubernetes stack |
 | `guest.nix` | Optional KDE Plasma 6 guest session — tmpfs home wiped on logout *(not loaded by default)* |
 
 ## Features
@@ -74,7 +74,6 @@ A stable, secure NixOS development environment for developers and CS students. B
 ### Virtualisation & Containers
 - **Docker** and **Podman** (with `podman-desktop` and `distrobox`)
 - **libvirtd + QEMU KVM** with virt-manager and SPICE USB redirection
-- **Waydroid** (Android in a container, nftables variant)
 - **Kubernetes dev stack**: `kubectl`, `kind`, `minikube`, `helm`, `kustomize`, `k9s`, `kubectx`
 
 ### Development Tooling
@@ -146,7 +145,7 @@ forge/
     ├── networking.nix          # NetworkManager, firewall, VPN
     ├── packages.nix            # System-wide packages
     ├── security.nix            # AppArmor, TPM2, polkit, keyring
-    └── virtualisation.nix      # Docker, Podman, KVM, Waydroid, k8s
+    └── virtualisation.nix      # Docker, Podman, KVM, k8s
 ```
 
 ---
