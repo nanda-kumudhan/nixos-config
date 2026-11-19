@@ -3,22 +3,18 @@
 {
   networking = {
     hostName = "forge";
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 53317 ];
-      allowedUDPPorts = [ 53317 ];
-      checkReversePath = "loose";
-    };
+    firewall.enable = false;
 
+    # Podman and libvirt use nftables for their virtual networks.
     nftables.enable = true;
 
     networkmanager = {
       enable = true;
       wifi = {
-        macAddress = "stable-ssid";
-        scanRandMacAddress = true;
+        macAddress = "permanent";
+        scanRandMacAddress = false;
       };
-      ethernet.macAddress = "stable-ssid";
+      ethernet.macAddress = "permanent";
       plugins = with pkgs; [
         networkmanager-openvpn
         networkmanager-openconnect
